@@ -1,13 +1,15 @@
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+// import { useState } from "react";
+import useServices from "../../../Hooks/useServices";
 import ServiceCard from "./ServiceCard";
 
-
+// DRY-->Do not Repeat useself
 const Services = () => {
-    const [Services,setServices]=useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/services').then(res=>res.json()).then(data=>setServices(data));
-    },[])
+    const Services=useServices();
+    // const [Services,setServices]=useState([]);
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/services').then(res=>res.json()).then(data=>setServices(data));
+    // },[])
     return (
         <div className="mt-4">
              <div className="text-center">
